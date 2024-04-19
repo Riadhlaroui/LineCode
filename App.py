@@ -42,13 +42,16 @@ def rz(data):
     
     plot.clear()
     plot.grid(True)
-    plot.set_xlabel('X Axis')
-    plot.set_ylabel('Y Axis')
-    plot.set_title('RZ', fontsize=10, color='black')
-    plot.set_xlabel(str(data), fontsize=10, color='black')
-    plot.plot(xs, ys)
+    plot.set_ylabel('Y Axis', color = "#fff")
+    plot.set_title('RZ', fontsize=10, color= c4)
+    plot.set_xlabel(str(data), fontsize=10, color="#fff")
+    plot.plot(xs, ys, color= rb)
     plot.set_ylim(-3, 3)
+    plot.patch.set_facecolor(bg_color)
     plot.set_xlim(0, len(Array))
+
+    plot.tick_params(axis='x', colors='white')
+    plot.tick_params(axis='y', colors='white')
     plot_canvas.draw()
 
 
@@ -66,12 +69,18 @@ def manchester_diff(data):
     ys = np.repeat(data_md, 2)
     xs = xs[1:]
     ys = ys[:-1]
-    plot.clear()  
-    plot.plot(xs, ys, color= c1)
-    plot.set_title("Manchester Differential", fontsize=10, color='black')  
-    plot.set_xlabel(str(data), fontsize=10, color='black')
+    plot.clear()
+    plot.grid(True)
+    plot.plot(xs, ys, color= rb)
+    plot.set_ylabel('Y Axis', color = "#fff")
+    plot.set_title("Manchester Differential", fontsize=10, color= c4)  
+    plot.set_xlabel(str(data), fontsize=10, color="#fff")
     plot.set_ylim(-3, 3)
+    plot.patch.set_facecolor(bg_color)
     plot.set_xlim(0, len(data_md))
+
+    plot.tick_params(axis='x', colors='white')
+    plot.tick_params(axis='y', colors='white')
     plot_canvas.draw()
 
 
@@ -88,12 +97,18 @@ def miller(data):
     ys = np.repeat(data_miller, 2)
     xs = xs[1:]
     ys = ys[:-1]
-    plot.clear()  
-    plot.plot(xs, ys, color= c1)
-    plot.set_title("Miller (Delay Modulation)", fontsize=10, color='black')  
-    plot.set_xlabel(str(data), fontsize=10, color='black')  
+    plot.clear()
+    plot.grid(True)
+    plot.plot(xs, ys, color= rb)
+    plot.set_ylabel('Y Axis', color = "#fff")
+    plot.set_title("Miller (Delay Modulation)", fontsize=10, color= c4)  
+    plot.set_xlabel(str(data), fontsize=10, color= "#fff")
     plot.set_ylim(-3, 3)
+    plot.patch.set_facecolor(bg_color)
     plot.set_xlim(0, len(data_miller))
+
+    plot.tick_params(axis='x', colors='white')
+    plot.tick_params(axis='y', colors='white')
     plot_canvas.draw()
 
 
@@ -114,13 +129,16 @@ def nrz(data):
     
     plot.clear()
     plot.grid(True)
-    plot.set_xlabel('X Axis')
-    plot.set_ylabel('Y Axis')
-    plot.set_title("NRZ", fontsize=10, color='black')
-    plot.set_xlabel(str(data), fontsize=10, color='black')
-    plot.plot(xs, ys, color = c1)
+    plot.set_ylabel('Y Axis', color = "#fff")
+    plot.set_title("NRZ", fontsize=10, color= c4)
+    plot.set_xlabel(str(data), fontsize=10, color='#fff')
+    plot.plot(xs, ys, color = rb)
     plot.set_ylim(-3, 3)
+    plot.patch.set_facecolor(bg_color)
     plot.set_xlim(0, len(data_nrz))
+
+    plot.tick_params(axis='x', colors='white')
+    plot.tick_params(axis='y', colors='white')
     plot_canvas.draw()
 
 
@@ -135,12 +153,17 @@ def Manchester(data):
     ys = np.repeat(data_manchester, 2)
     xs = xs[1:]
     ys = ys[:-1]
-    plot.clear()  
-    plot.plot(xs, ys, color= c1)
-    plot.set_title("Manchester", fontsize=10, color='black')  
-    plot.set_xlabel(str(data), fontsize=10, color='black')
+    plot.clear()
+    plot.grid(True)
+    plot.plot(xs, ys, color= rb)
+    plot.set_title("Manchester", fontsize=10, color= c4)  
+    plot.set_xlabel(str(data), fontsize=10, color='#fff')
     plot.set_ylim(-3, 3)
     plot.set_xlim(0, len(data_manchester))
+    plot.patch.set_facecolor(bg_color)
+
+    plot.tick_params(axis='x', colors='white')
+    plot.tick_params(axis='y', colors='white')
     plot_canvas.draw()
     
 
@@ -161,13 +184,16 @@ def nrz_l(data):
     
     plot.clear()
     plot.grid(True)
-    plot.set_xlabel('X Axis')
-    plot.set_ylabel('Y Axis')
-    plot.set_title('NRZ-I', fontsize=10, color='black')
-    plot.set_xlabel(str(data), fontsize=10, color='black')
-    plot.plot(xs, ys, color = c1)
+    plot.set_ylabel('Y Axis', color="#fff")
+    plot.set_title('NRZ-I', fontsize=10, color= c4)
+    plot.set_xlabel(str(data), fontsize=10, color='#fff')
+    plot.plot(xs, ys, color = rb)
     plot.set_ylim(-3, 3)
     plot.set_xlim(0, len(data_nrz))
+    plot.patch.set_facecolor(bg_color)
+
+    plot.tick_params(axis='x', colors='white')
+    plot.tick_params(axis='y', colors='white')
     plot_canvas.draw()
 
 def plot_btn():
@@ -196,6 +222,7 @@ def plot_btn():
         return
 
     fig = Figure(figsize=(6, 4.5), dpi= 100)
+    fig.patch.set_facecolor(bg_color)
     global plot
     plot = fig.add_subplot(1, 1, 1)
     plot_canvas = FigureCanvasTkAgg(fig, master= root)
@@ -223,9 +250,11 @@ root.geometry("700x550")
 root.resizable(False, False)
 
 bg_color = '#141415'
-
 c1 = "#11212D"
 c2 = "#CCD0CF"
+rb = "royalblue"
+c4 = "white"
+
 background_color(root, bg_color)
 
 plot_canvas = None
@@ -258,7 +287,7 @@ plot_button = tk.Button(root, text="Plot", command=plot_btn ,
 plot_button.place(x= 450, y = 24)
 
 
-lb2 = ttk.Label(text="Choose an encoding methoed:",
+lb2 = ttk.Label(text="Choose an encoding technique: ",
                 background= bg_color,
                 foreground= c2,
                 font=('Arial', 10, 'italic', 'bold',),
