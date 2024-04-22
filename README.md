@@ -6,6 +6,8 @@ to run the app you need to have python installed on your computer and this libra
 
 
 -Plotting Library: If you're using Matplotlib for visualization, you'll need to install it: `pip install matplotlib`
+
+
 -Pillow for the background: `pip install pillow`
 
 
